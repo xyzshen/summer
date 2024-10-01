@@ -1,17 +1,17 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const News = () => {
+const Contact = () => {
     return (
         <Container fluid>
             <Row>
                 <Col>
-                    <h2>公司动态</h2>
-                    <p>这是我们公司的最新动态。</p>
+                    <h2>联系我们</h2>
+                    <p>电子邮件：info@example.com</p>
                 </Col>
             </Row>
         </Container>
     );
 };
 
-export default News;
+export default Contact;
