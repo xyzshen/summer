@@ -1,17 +1,24 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { NavLink, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const navItems = [
-    { path: "/", label: "首页" },
-    { path: "/products", label: "产品展示" },
-    { path: "/about", label: "关于公司" },
-    { path: "/news", label: "公司动态" },
-    { path: "/join", label: "加入我们" },
-    { path: "/contact", label: "联系我们" }
+    { path: "/", label: "nav.home" },
+    { path: "/products", label: "nav.products" },
+    { path: "/about", label: "nav.about" },
+    { path: "/news", label: "nav.news" },
+    { path: "/join", label: "nav.join" },
+    { path: "/contact", label: "nav.contact" }
 ];
 
 const NavbarComponent = ({ logo }) => {
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    };
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -28,10 +35,16 @@ const NavbarComponent = ({ logo }) => {
                                 to={item.path}
                                 className={({ isActive }) => isActive ? "active" : ""}
                             >
-                                {item.label}
+                                {t(item.label)}
                             </Nav.Link>
                         ))}
                     </Nav>
+                    <NavDropdown title={t('language')} id="language-dropdown">
+                        <NavDropdown.Item onClick={() => changeLanguage('en')}>English</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => changeLanguage('es')}>Español</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => changeLanguage('pt')}>Português</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => changeLanguage('zh')}>中文</NavDropdown.Item>
+                    </NavDropdown>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

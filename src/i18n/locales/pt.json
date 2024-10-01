@@ -1,0 +1,11 @@
+{
+    "nav": {
+        "home": "Início",
+        "products": "Produtos",
+        "about": "Sobre Nós",
+        "news": "Notícias",
+        "join": "Junte-se a Nós",
+        "contact": "Contate-nos"
+    },
+    "language": "Idioma"
+}
