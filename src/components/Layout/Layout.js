@@ -1,17 +1,13 @@
 import React from "react";
 import "./Layout.css";
-import Navbar from "./Navbar";
+import Header from "./Header";
 import { Container, Row, Col } from "react-bootstrap";
 const Layout = ({ children }) => {
     return (
         <div className="layout">
-            <Navbar />
+            <Header />
             <main className="main-content">
-                <Container fluid>
-                    <Row>
-                        <Col>{children}</Col>
-                    </Row>
-                </Container>
+                {children}
             </main>
             <footer className="footer">
                 <p>版权所有 © 2023 Summer</p>
